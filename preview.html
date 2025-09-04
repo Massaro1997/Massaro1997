@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massaro1997.com - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+            min-height: 100vh;
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, #0066ff, #004cc7, #0080ff);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-intro {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #0066ff, #004cc7, #0080ff);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4), 0 0 30px rgba(0, 128, 255, 0.2);
+            border: 2px solid rgba(0, 204, 255, 0.3);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 102, 255, 0.6), 0 0 50px rgba(0, 128, 255, 0.4);
+            border-color: rgba(0, 204, 255, 0.6);
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #007aff;
+            margin-bottom: 40px;
+        }
+
+        .about-card h2 {
+            font-size: 3rem;
+            color: #1d1d1f;
+            margin-bottom: 25px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            color: #424245;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #007aff, #0051d4);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .pricing-section {
+            background: #f7f8fc;
+            padding: 70px 20px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e6e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #3a86ff;
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3a86ff;
+            margin: 20px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-intro {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+
+            .about-card h2 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="hero-content">
+            <h1 class="hero-title">Dein Geschäft lebt aber online bist du unsichtbar.</h1>
+            <p class="hero-subtitle">Kunden suchen auf Google & Instagram. Wenn sie dich dort nicht finden, gehen sie zur Konkurrenz.</p>
+            <p class="hero-intro">Du hast ein Restaurant, einen Friseursalon oder Laden? Ohne Website und Online-Präsenz verlierst du täglich neue Kunden. Ich helfe dir, online sichtbar zu werden mit Website, Shop & gezielter Werbung.</p>
+            <a class="cta-button" href="mailto:massarocalogero1997@gmail.com?subject=Anfrage für Website&body=Hallo, ich interessiere mich für deine Web-Services...">Kontaktiere mich jetzt</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="about-card">
+            <h2>Wer ich bin</h2>
+            <p>
+                Ich bin <strong>Calogero Massaro</strong>, Webdesigner, Programmierer und Online-Marketing-Spezialist. 
+                Ich helfe lokalen Unternehmen wie Restaurants, Friseuren, Handwerkern oder Einzelhändlern, 
+                endlich <strong>sichtbar zu werden und zu wachsen.</strong>
+            </p>
+            <p>
+                Ich kombiniere <strong>technisches Know-how mit gezieltem Marketing</strong>: 
+                Nicht nur hübsche Webseiten sondern digitale Werkzeuge, die verkaufen.
+            </p>
+            
+            <div class="skills">
+                <div class="skill-item">Webdesign</div>
+                <div class="skill-item">Programmierung</div>
+                <div class="skill-item">Online-Marketing</div>
+                <div class="skill-item">SEO</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <h3>Starter</h3>
+                <div class="price">€ 499,99</div>
+                <ul>
+                    <li>One-Page komplett (5–7 Blöcke)</li>
+                    <li>Branding Farben + Schriften</li>
+                    <li>Kontaktformular & WhatsApp</li>
+                    <li>Basis-SEO + Analytics</li>
+                </ul>
+                <a class="cta-button" href="#">Jetzt für € 499,99 buchen</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Pro</h3>
+                <div class="price">€ 699,99</div>
+                <ul>
+                    <li>Multi-Page (bis zu 4 Seiten)</li>
+                    <li>Blog oder Basis-Shop</li>
+                    <li>Performance-Optimierung</li>
+                    <li>Basis-Integrationen</li>
+                </ul>
+                <a class="cta-button" href="#">Pro aktivieren</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Business</h3>
+                <div class="price">€ 999,00</div>
+                <ul>
+                    <li>Multi-Page (bis zu 10 Seiten)</li>
+                    <li>E-Commerce / Membership</li>
+                    <li>Geschwindigkeit & SEO-Pro</li>
+                    <li>Priorisierter Support</li>
+                </ul>
+                <a class="cta-button" href="#">Mit uns sprechen</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
