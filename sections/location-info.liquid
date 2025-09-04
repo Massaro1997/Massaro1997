@@ -1,0 +1,285 @@
+{{ 'location-info.css' | asset_url | stylesheet_tag }}
+
+<div class="location-section color-{{ section.settings.color_scheme }}" id="Location-{{ section.id }}">
+  <div class="location-container page-width">
+    <div class="location-content">
+      <div class="location-text">
+        <h2 class="location-title">{{ section.settings.heading | default: 'Meine Standorte' }}</h2>
+        <div class="location-description">
+          <p>{{ section.settings.description | default: 'Basiert in Köln, tätig in der gesamten Region NRW.' }}</p>
+        </div>
+        <div class="location-cities">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'city' -%}
+                <div class="city-item" {{ block.shopify_attributes }}>
+                  <h3 class="city-name">{{ block.settings.city_name }}</h3>
+                  <p class="city-description">{{ block.settings.city_description }}</p>
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_url | default: '#' }}" class="location-button button button--primary">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+      <div class="location-image">
+        {%- if section.settings.image -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" 
+               alt="{{ section.settings.image.alt | default: 'Köln Skyline' }}"
+               loading="lazy"
+               class="skyline-image">
+        {%- else -%}
+          <div class="placeholder-image">
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <!-- Sky -->
+              <rect width="800" height="250" fill="url(#skyGradient)"/>
+              <!-- Rhine River -->
+              <rect x="0" y="320" width="800" height="80" fill="#4A90E2"/>
+              <!-- Buildings -->
+              <rect x="100" y="200" width="60" height="120" fill="#8B8B8B"/>
+              <rect x="180" y="180" width="40" height="140" fill="#A0A0A0"/>
+              <rect x="240" y="220" width="50" height="100" fill="#909090"/>
+              <rect x="310" y="160" width="70" height="160" fill="#8B8B8B"/>
+              <rect x="400" y="190" width="45" height="130" fill="#A0A0A0"/>
+              <rect x="460" y="210" width="55" height="110" fill="#909090"/>
+              <rect x="540" y="170" width="60" height="150" fill="#8B8B8B"/>
+              <rect x="620" y="195" width="40" height="125" fill="#A0A0A0"/>
+              <!-- Cathedral silhouette -->
+              <polygon points="320,160 340,120 360,160" fill="#7A7A7A"/>
+              <rect x="330" y="120" width="20" height="40" fill="#7A7A7A"/>
+              <!-- Text -->
+              <text x="400" y="50" text-anchor="middle" fill="#333" font-family="Arial" font-size="24">Köln Skyline</text>
+            </svg>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.location-section {
+  padding: 60px 0;
+  background: var(--gradient-background);
+}
+
+.location-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.location-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+}
+
+.location-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(var(--color-foreground), 0.8);
+  line-height: 1.6;
+}
+
+.location-cities {
+  margin-bottom: 40px;
+}
+
+.city-item {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(var(--color-foreground), 0.05);
+  border-radius: 12px;
+  border-left: 4px solid rgb(var(--color-primary));
+}
+
+.city-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgb(var(--color-primary));
+}
+
+.city-description {
+  font-size: 1rem;
+  color: rgba(var(--color-foreground), 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.location-button {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.location-image {
+  position: relative;
+}
+
+.skyline-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-image svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .location-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .location-title {
+    font-size: 2rem;
+  }
+  
+  .location-description {
+    font-size: 1.1rem;
+  }
+  
+  .city-item {
+    text-align: left;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Location Info",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Meine Standorte",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Basiert in Köln, tätig in der gesamten Region NRW. Ich arbeite mit lokalen Unternehmen in Düsseldorf, Wuppertal und dem gesamten Rheinland.",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Skyline Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "scheme-1",
+      "label": "Color Scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "city",
+      "name": "City",
+      "settings": [
+        {
+          "type": "text",
+          "id": "city_name",
+          "label": "City Name",
+          "default": "Köln"
+        },
+        {
+          "type": "textarea",
+          "id": "city_description",
+          "label": "City Description",
+          "default": "Mein Hauptsitz - hier entwickle ich innovative Web-Lösungen."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location Info",
+      "blocks": [
+        {
+          "type": "city",
+          "settings": {
+            "city_name": "Köln",
+            "city_description": "Mein Hauptsitz - hier entwickle ich innovative Web-Lösungen für lokale Unternehmen."
+          }
+        },
+        {
+          "type": "city",
+          "settings": {
+            "city_name": "Düsseldorf", 
+            "city_description": "Regelmäßige Projekte mit Unternehmen in der Landeshauptstadt."
+          }
+        },
+        {
+          "type": "city",
+          "settings": {
+            "city_name": "Wuppertal",
+            "city_description": "Unterstützung für lokale Geschäfte und Start-ups im Bergischen Land."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
